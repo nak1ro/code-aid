@@ -374,40 +374,6 @@ model Feedback {
 
 ---
 
-## ⚠️ Limitations
-
-### **Scalability**
-- ✅ **Current**: In-memory vector search (suitable for <1,000 chunks)
-- ❌ **Limitation**: Loads all chunks into memory on every query
-- 🔧 **Solution**: Migrate to `pgvector` extension for PostgreSQL or dedicated vector DB (Pinecone, Weaviate)
-
-### **File Size & Formats**
-- ✅ **Max Size**: 10 MB per file
-- ✅ **Supported**: `.txt`, `.js`, `.ts`, `.py`, `.java`, `.log`, `.md`, `.docx`, `.xlsx`
-- ❌ **Not Supported**: PDFs, images, binary files
-
-### **Answer Quality**
-- **Chunking Limitations**: Fixed-size chunking may split related concepts
-- **Context Window**: Max 1000 tokens in response (longer answers may be truncated)
-- **Hallucination Risk**: LLM may still generate incorrect info if context is ambiguous
-
----
-
-## 🚀 Future Improvements
-
-1. **Streaming Responses**: Implement SSE for real-time answer generation
-2. **Semantic Chunking**: Use sentence/paragraph boundaries instead of fixed character count
-3. **Vector Database**: Migrate to `pgvector` or Pinecone for better scalability
-4. **PDF Support**: Add pdf-parse library for PDF document processing
-5. **Multi-turn Conversations**: Maintain conversation history for follow-up questions
-6. **Advanced Analytics**: Dashboard for feedback metrics, query patterns, and chunk quality
-7. **Rate Limiting**: Protect API endpoints from abuse
-8. **Authentication**: Add user accounts and document access control
-9. **Batch Upload**: Support multiple file uploads simultaneously
-10. **Export Functionality**: Allow users to export conversations and feedback data
-
----
-
 ## 📄 License
 
 This project is for educational purposes as part of a technical support assistant demonstration using RAG.
