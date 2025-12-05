@@ -118,10 +118,15 @@ export function FileUpload({ onUploadSuccess }: FileUploadProps) {
     return (
         <Card>
             <div
-                className={`border-2 border-dashed rounded-lg p-8 text-center transition-all cursor-pointer ${isDragging
-                        ? 'border-blue-500 bg-blue-500/10'
-                        : 'border-zinc-700 hover:border-zinc-600'
-                    } ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`
+                    border-2 border-dashed rounded-lg p-8 text-center 
+                    transition-all duration-300 cursor-pointer
+                    ${isDragging
+                        ? 'border-violet-400 bg-violet-500/20 shadow-lg shadow-violet-500/30'
+                        : 'border-purple-500/30 hover:border-purple-400/50 hover:bg-purple-500/5'
+                    } 
+                    ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}
+                `}
                 onDragEnter={handleDragEnter}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
@@ -139,13 +144,13 @@ export function FileUpload({ onUploadSuccess }: FileUploadProps) {
 
                 {isUploading ? (
                     <div className="flex flex-col items-center gap-3">
-                        <div className="animate-spin h-10 w-10 border-4 border-blue-500 border-t-transparent rounded-full"></div>
-                        <p className="text-zinc-300 font-medium">{getStageText()}</p>
+                        <div className="animate-spin h-10 w-10 border-4 border-purple-500 border-t-transparent rounded-full shadow-lg shadow-purple-500/50"></div>
+                        <p className="text-purple-200 font-medium">{getStageText()}</p>
                     </div>
                 ) : (
                     <div className="flex flex-col items-center gap-3">
                         <svg
-                            className="h-12 w-12 text-zinc-600"
+                            className="h-12 w-12 text-purple-400/60"
                             stroke="currentColor"
                             fill="none"
                             viewBox="0 0 48 48"
@@ -158,10 +163,10 @@ export function FileUpload({ onUploadSuccess }: FileUploadProps) {
                             />
                         </svg>
                         <div>
-                            <p className="text-zinc-300 font-medium mb-1">
+                            <p className="text-purple-100 font-medium mb-1">
                                 Drag and drop a file here, or click to select
                             </p>
-                            <p className="text-sm text-zinc-500">
+                            <p className="text-sm text-purple-300/60">
                                 Supported: {SUPPORTED_FILE_EXTENSIONS.join(', ')}
                             </p>
                         </div>
@@ -171,10 +176,13 @@ export function FileUpload({ onUploadSuccess }: FileUploadProps) {
 
             {message && (
                 <div
-                    className={`mt-4 p-3 rounded-lg ${message.type === 'success'
-                            ? 'bg-green-900/20 border border-green-800 text-green-400'
-                            : 'bg-red-900/20 border border-red-800 text-red-400'
-                        }`}
+                    className={`
+                        mt-4 p-3 rounded-lg border backdrop-blur-sm
+                        ${message.type === 'success'
+                            ? 'bg-emerald-900/30 border-emerald-500/40 text-emerald-300 shadow-sm shadow-emerald-500/20'
+                            : 'bg-red-900/30 border-red-500/40 text-red-300 shadow-sm shadow-red-500/20'
+                        }
+                    `}
                 >
                     {message.text}
                 </div>

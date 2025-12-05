@@ -17,10 +17,20 @@ export function MessageBubble({ role, content, sources, timestamp }: MessageBubb
     return (
         <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-6`}>
             <div
-                className={`max-w-[85%] rounded-2xl px-5 py-4 ${isUser
-                        ? 'bg-blue-600 text-white rounded-tr-none'
-                        : 'bg-zinc-800 text-zinc-100 rounded-tl-none border border-zinc-700'
-                    }`}
+                className={`
+                    max-w-[85%] rounded-2xl px-5 py-4
+                    ${isUser
+                        ? `bg-gradient-to-br from-violet-600 to-purple-600 
+                           text-white rounded-tr-none 
+                           shadow-lg shadow-violet-500/30
+                           ring-1 ring-violet-400/30`
+                        : `bg-gradient-to-br from-purple-900/60 to-indigo-900/60 
+                           text-purple-50 rounded-tl-none 
+                           border border-purple-500/30
+                           shadow-lg shadow-purple-900/30
+                           ring-1 ring-purple-400/10`
+                    }
+                `}
             >
                 <div className="prose prose-invert prose-sm max-w-none">
                     {isUser ? (
@@ -33,8 +43,10 @@ export function MessageBubble({ role, content, sources, timestamp }: MessageBubb
                 {!isUser && sources && <SourceChunks sources={sources} />}
 
                 <div
-                    className={`text-[10px] mt-2 opacity-60 ${isUser ? 'text-blue-100' : 'text-zinc-400'
-                        } text-right`}
+                    className={`
+                        text-[10px] mt-2 opacity-60 text-right
+                        ${isUser ? 'text-violet-100' : 'text-purple-300'}
+                    `}
                 >
                     {timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>

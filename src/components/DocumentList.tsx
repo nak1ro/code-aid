@@ -78,7 +78,7 @@ export function DocumentList({ refreshTrigger }: DocumentListProps) {
 
     if (documents.length === 0) {
         return (
-            <div className="text-center py-8 text-zinc-500">
+            <div className="text-center py-8 text-purple-300/60">
                 <p>No documents uploaded yet.</p>
             </div>
         );
@@ -87,15 +87,15 @@ export function DocumentList({ refreshTrigger }: DocumentListProps) {
     return (
         <div className="space-y-3">
             {documents.map((doc) => (
-                <Card key={doc.id} className="p-4 flex items-center justify-between group">
+                <Card key={doc.id} className="p-4 flex items-center justify-between group hover:scale-[1.01] transition-transform">
                     <div className="min-w-0 flex-1 mr-4">
-                        <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-medium text-zinc-200 truncate" title={doc.filename}>
+                        <div className="flex-col items-start mb-4">
+                            <h3 className="font-medium mb-3 text-purple-100 truncate" title={doc.filename}>
                                 {doc.filename}
                             </h3>
                             <Badge variant="info">{doc.fileType.split('/').pop()}</Badge>
                         </div>
-                        <div className="text-xs text-zinc-500 flex gap-3">
+                        <div className="text-xs text-purple-300/60 flex gap-3">
                             <span>{formatFileSize(doc.fileSize)}</span>
                             <span>•</span>
                             <span>{formatDate(doc.uploadedAt)}</span>
@@ -106,7 +106,17 @@ export function DocumentList({ refreshTrigger }: DocumentListProps) {
                     <button
                         onClick={() => handleDelete(doc.id)}
                         disabled={deletingId === doc.id}
-                        className="p-2 text-zinc-500 hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                        className="
+                            p-2
+                            text-purple-400/70
+                            hover:text-red-400
+                            hover:bg-red-900/20
+                            rounded-lg
+                            transition-all duration-300
+                            opacity-0 group-hover:opacity-100
+                            focus:opacity-100
+                            hover:shadow-lg hover:shadow-red-500/30
+                        "
                         title="Delete document"
                     >
                         {deletingId === doc.id ? (

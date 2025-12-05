@@ -13,10 +13,16 @@ export function SourceChunks({ sources }: SourceChunksProps) {
     if (!sources || sources.length === 0) return null;
 
     return (
-        <div className="mt-4 border-t border-zinc-800 pt-3">
+        <div className="mt-4 border-t border-purple-500/20 pt-3">
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-2 text-xs font-medium text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="
+                    flex items-center gap-2 
+                    text-xs font-medium 
+                    text-purple-300/70 
+                    hover:text-purple-200 
+                    transition-colors duration-300
+                "
             >
                 <svg
                     className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
@@ -32,14 +38,34 @@ export function SourceChunks({ sources }: SourceChunksProps) {
             {isExpanded && (
                 <div className="mt-3 space-y-3">
                     {sources.map((item, index) => (
-                        <div key={item.chunk.id} className="bg-zinc-900/50 rounded-lg p-3 text-xs border border-zinc-800">
-                            <div className="flex justify-between items-center mb-2 text-zinc-400">
-                                <span className="font-medium text-blue-400">{item.chunk.document?.filename}</span>
-                                <span className="bg-zinc-800 px-1.5 py-0.5 rounded text-[10px]">
+                        <div
+                            key={item.chunk.id}
+                            className="
+                                bg-gradient-to-br from-purple-950/50 to-indigo-950/50 
+                                rounded-lg p-3 text-xs 
+                                border border-purple-500/30
+                                shadow-sm shadow-purple-500/10
+                                backdrop-blur-sm
+                            "
+                        >
+                            <div className="flex justify-between items-center mb-2 text-purple-300/70">
+                                <span className="font-medium text-violet-300">{item.chunk.document?.filename}</span>
+                                <span className="
+                                    bg-gradient-to-r from-cyan-900/50 to-blue-900/50 
+                                    px-2 py-0.5 rounded text-[10px]
+                                    border border-cyan-500/30
+                                    text-cyan-300
+                                    shadow-sm shadow-cyan-500/20
+                                ">
                                     Match: {(item.score * 100).toFixed(1)}%
                                 </span>
                             </div>
-                            <div className="text-zinc-300 font-mono bg-black/30 p-2 rounded overflow-x-auto whitespace-pre-wrap">
+                            <div className="
+                                text-purple-200/90 font-mono 
+                                bg-black/30 p-2 rounded 
+                                overflow-x-auto whitespace-pre-wrap
+                                border border-purple-500/10
+                            ">
                                 {item.chunk.content}
                             </div>
                         </div>

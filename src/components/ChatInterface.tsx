@@ -88,7 +88,7 @@ export function ChatInterface() {
 
     return (
         <Card className="flex flex-col h-[600px] p-0 overflow-hidden">
-            <div className="flex-1 overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
+            <div className="flex-1 overflow-y-auto p-6 scrollbar-thin">
                 {messages.map((msg) => (
                     <MessageBubble
                         key={msg.id}
@@ -100,11 +100,11 @@ export function ChatInterface() {
                 ))}
                 {isLoading && (
                     <div className="flex justify-start mb-6">
-                        <div className="bg-zinc-800 rounded-2xl rounded-tl-none px-5 py-4 border border-zinc-700">
+                        <div className="bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl rounded-tl-none px-5 py-4 border border-purple-500/30 shadow-lg shadow-purple-500/20">
                             <div className="flex gap-1">
-                                <div className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce delay-75"></div>
-                                <div className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce delay-150"></div>
+                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce shadow-sm shadow-purple-400"></div>
+                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-75 shadow-sm shadow-purple-400"></div>
+                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-150 shadow-sm shadow-purple-400"></div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export function ChatInterface() {
                 <div ref={messagesEndRef} />
             </div>
 
-            <div className="p-4 border-t border-zinc-800 bg-zinc-900/80 backdrop-blur">
+            <div className="p-4 border-t border-purple-500/20 bg-gradient-to-br from-purple-950/50 to-indigo-950/50 backdrop-blur-xl">
                 <form onSubmit={handleSubmit} className="flex gap-3">
                     <Input
                         value={input}
