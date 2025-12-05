@@ -30,7 +30,8 @@ export async function extractText(file: File): Promise<string> {
             fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ) {
             const arrayBuffer = await file.arrayBuffer();
-            const result = await mammoth.extractRawText({ arrayBuffer });
+            const buffer = Buffer.from(arrayBuffer);
+            const result = await mammoth.extractRawText({ buffer });
             return result.value;
         }
 
