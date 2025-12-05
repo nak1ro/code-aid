@@ -18,7 +18,7 @@ export function Input({ label, error, className = '', ...props }: InputProps) {
                     w-full px-4 py-2.5 
                     bg-gradient-to-br from-purple-950/50 to-indigo-950/50
                     border border-purple-500/30 
-                    rounded-lg 
+                    rounded-full
                     text-purple-50 
                     placeholder-purple-300/40
                     focus:outline-none 

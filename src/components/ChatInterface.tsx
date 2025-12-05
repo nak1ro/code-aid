@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { Button } from './ui/Button';
-import { Input } from './ui/Input';
-import { Card } from './ui/Card';
-import { MessageBubble } from './MessageBubble';
-import { ChunkWithScore } from '@/types';
+import {useState, useRef, useEffect} from 'react';
+import {Button} from './ui/Button';
+import {Input} from './ui/Input';
+import {Card} from './ui/Card';
+import {MessageBubble} from './MessageBubble';
+import {ChunkWithScore} from '@/types';
 
 interface Message {
     id: string;
@@ -29,7 +29,7 @@ export function ChatInterface() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        messagesEndRef.current?.scrollIntoView({behavior: 'smooth'});
     };
 
     useEffect(() => {
@@ -54,8 +54,8 @@ export function ChatInterface() {
         try {
             const response = await fetch('/api/ask', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ question: userMessage.content }),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({question: userMessage.content}),
             });
 
             const data = await response.json();
@@ -100,32 +100,34 @@ export function ChatInterface() {
                 ))}
                 {isLoading && (
                     <div className="flex justify-start mb-6">
-                        <div className="bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl rounded-tl-none px-5 py-4 border border-purple-500/30 shadow-lg shadow-purple-500/20">
+                        <div
+                            className="bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl rounded-tl-none px-5 py-4 border border-purple-500/30 shadow-lg shadow-purple-500/20">
                             <div className="flex gap-1">
-                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce shadow-sm shadow-purple-400"></div>
-                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-75 shadow-sm shadow-purple-400"></div>
-                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-150 shadow-sm shadow-purple-400"></div>
+                                <div
+                                    className="w-2 h-2 bg-purple-400 rounded-full animate-bounce shadow-sm shadow-purple-400"></div>
+                                <div
+                                    className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-75 shadow-sm shadow-purple-400"></div>
+                                <div
+                                    className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-150 shadow-sm shadow-purple-400"></div>
                             </div>
                         </div>
                     </div>
                 )}
-                <div ref={messagesEndRef} />
+                <div ref={messagesEndRef}/>
             </div>
 
-            <div className="p-4 border-t border-purple-500/20 bg-gradient-to-br from-purple-950/50 to-indigo-950/50 backdrop-blur-xl">
-                <form onSubmit={handleSubmit} className="flex gap-3">
-                    <Input
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Ask a question about your code..."
-                        disabled={isLoading}
-                        className="flex-1"
-                    />
-                    <Button type="submit" disabled={isLoading || !input.trim()}>
-                        Send
-                    </Button>
-                </form>
-            </div>
+            <form onSubmit={handleSubmit} className="flex gap-3">
+                <Input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Ask a question about your code..."
+                    disabled={isLoading}
+                    className="flex-1"
+                />
+                <Button type="submit" disabled={isLoading || !input.trim()}>
+                    Send
+                </Button>
+            </form>
         </Card>
     );
 }
