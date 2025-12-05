@@ -1,11 +1,11 @@
 'use client';
 
-import {useState, useRef, useEffect} from 'react';
-import {Button} from './ui/Button';
-import {Input} from './ui/Input';
-import {Card} from './ui/Card';
-import {MessageBubble} from './MessageBubble';
-import {ChunkWithScore} from '@/types';
+import { useState, useRef, useEffect } from 'react';
+import { Button } from './ui/Button';
+import { Input } from './ui/Input';
+import { Card } from './ui/Card';
+import { MessageBubble } from './MessageBubble';
+import { ChunkWithScore } from '@/types';
 
 interface Message {
     id: string;
@@ -29,7 +29,7 @@ export function ChatInterface() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({behavior: 'smooth'});
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
@@ -54,8 +54,8 @@ export function ChatInterface() {
         try {
             const response = await fetch('/api/ask', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({question: userMessage.content}),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: userMessage.content }),
             });
 
             const data = await response.json();
@@ -92,6 +92,7 @@ export function ChatInterface() {
                 {messages.map((msg) => (
                     <MessageBubble
                         key={msg.id}
+                        messageId={msg.id}
                         role={msg.role}
                         content={msg.content}
                         sources={msg.sources}
@@ -113,7 +114,7 @@ export function ChatInterface() {
                         </div>
                     </div>
                 )}
-                <div ref={messagesEndRef}/>
+                <div ref={messagesEndRef} />
             </div>
 
             <form onSubmit={handleSubmit} className="flex gap-3">

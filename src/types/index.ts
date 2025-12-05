@@ -41,6 +41,26 @@ export interface ChunkWithScore {
     score: number;
 }
 
+// Feedback Types
+export interface Feedback {
+    id: string;
+    messageId: string;
+    rating: number;
+    comment?: string;
+    createdAt: Date;
+}
+
+export interface FeedbackRequest {
+    messageId: string;
+    rating: number;
+    comment?: string;
+}
+
+export interface FeedbackResponse {
+    success: boolean;
+    feedback: Feedback;
+}
+
 // Error Types
 export interface APIError {
     error: string;

@@ -25,6 +25,7 @@ export const config = envValidation.data;
 export const CHUNK_SIZE = 800;
 export const CHUNK_OVERLAP = 100;
 export const TOP_K = 5;
+export const RELEVANCE_THRESHOLD = 0.5; // Minimum similarity score to consider a chunk relevant
 export const EMBEDDING_MODEL = 'text-embedding-3-small';
 export const CHAT_MODEL = 'gpt-4-turbo';
 export const EMBEDDING_DIMENSIONS = 1536; // text-embedding-3-small dimension

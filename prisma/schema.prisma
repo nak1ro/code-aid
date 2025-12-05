@@ -30,3 +30,14 @@ model Chunk {
 
   @@index([documentId])
 }
+
+model Feedback {
+  id        String   @id @default(cuid())
+  messageId String
+  rating    Int      // 1 = thumbs down, 5 = thumbs up (or use simple 0/1 binary)
+  comment   String?  @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([messageId])
+  @@index([createdAt])
+}
