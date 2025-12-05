@@ -2,6 +2,7 @@
 
 import { ChunkWithScore } from '@/types';
 import { useState } from 'react';
+import { GRADIENTS, BORDERS, SHADOWS } from '@/lib/theme';
 
 interface SourceChunksProps {
     sources: ChunkWithScore[];
@@ -40,23 +41,23 @@ export function SourceChunks({ sources }: SourceChunksProps) {
                     {sources.map((item, index) => (
                         <div
                             key={item.chunk.id}
-                            className="
-                                bg-gradient-to-br from-purple-950/50 to-indigo-950/50 
+                            className={`
+                                ${GRADIENTS.sourceCard}
                                 rounded-lg p-3 text-xs 
-                                border border-purple-500/30
-                                shadow-sm shadow-purple-500/10
+                                border ${BORDERS.secondary}
+                                ${SHADOWS.glow}
                                 backdrop-blur-sm
-                            "
+                            `}
                         >
                             <div className="flex justify-between items-center mb-2 text-purple-300/70">
                                 <span className="font-medium text-violet-300">{item.chunk.document?.filename}</span>
-                                <span className="
-                                    bg-gradient-to-r from-cyan-900/50 to-blue-900/50 
+                                <span className={`
+                                    ${GRADIENTS.matchBadge}
                                     px-2 py-0.5 rounded text-[10px]
                                     border border-cyan-500/30
                                     text-cyan-300
                                     shadow-sm shadow-cyan-500/20
-                                ">
+                                `}>
                                     Match: {(item.score * 100).toFixed(1)}%
                                 </span>
                             </div>

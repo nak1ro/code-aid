@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react';
+import { MODAL_STYLES } from '@/lib/theme';
 
 interface ModalProps extends HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
@@ -12,18 +13,14 @@ export function Modal({ isOpen, onClose, title, children, className = '' }: Moda
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${MODAL_STYLES.overlay}`}
             onClick={onClose}
         >
             <div
                 className={`
                     relative w-full max-w-3xl max-h-[80vh] 
-                    bg-gradient-to-br from-purple-950/95 via-indigo-950/95 to-purple-950/95
-                    backdrop-blur-xl
-                    border border-purple-500/30
+                    ${MODAL_STYLES.content}
                     rounded-2xl 
-                    shadow-2xl shadow-purple-900/50
-                    ring-1 ring-purple-400/20
                     overflow-hidden
                     ${className}
                 `}

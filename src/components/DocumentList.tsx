@@ -6,6 +6,7 @@ import { Badge } from './ui/Badge';
 import { Spinner } from './ui/Spinner';
 import { Modal } from './ui/Modal';
 import { DocumentListResponse } from '@/types';
+import { GRADIENTS, BORDERS, SHADOWS } from '@/lib/theme';
 
 interface DocumentListProps {
     refreshTrigger: number;
@@ -186,13 +187,13 @@ export function DocumentList({ refreshTrigger }: DocumentListProps) {
                         {chunks.map((chunk, index) => (
                             <div
                                 key={chunk.id}
-                                className="
-                                    bg-gradient-to-br from-purple-950/50 to-indigo-950/50 
+                                className={`
+                                    ${GRADIENTS.sourceCard}
                                     rounded-lg p-4 
-                                    border border-purple-500/30
-                                    shadow-sm shadow-purple-500/10
+                                    border ${BORDERS.secondary}
+                                    ${SHADOWS.glow}
                                     backdrop-blur-sm
-                                "
+                                `}
                             >
                                 <div className="flex items-center justify-between mb-3">
                                     <span className="text-sm font-medium text-purple-300">

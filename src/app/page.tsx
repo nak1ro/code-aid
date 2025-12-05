@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FileUpload } from '@/components/FileUpload';
 import { DocumentList } from '@/components/DocumentList';
 import { ChatInterface } from '@/components/ChatInterface';
+import { GRADIENTS, BORDERS } from '@/lib/theme';
 
 export default function Home() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -15,13 +16,13 @@ export default function Home() {
   return (
     <main className="min-h-screen relative p-4 md:p-8">
       <div className="max-w-7xl mx-auto space-y-8 relative z-10">
-        <header className="flex items-center justify-between pb-6 border-b border-purple-500/20">
+        <header className={`flex items-center justify-between pb-6 border-b ${BORDERS.primary}`}>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/50 ring-1 ring-purple-400/30">
+            <div className={`w-10 h-10 ${GRADIENTS.primary} rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/50 ring-1 ring-purple-400/30`}>
               CA
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-200 via-purple-200 to-fuchsia-200">
+              <h1 className={`text-2xl font-bold ${GRADIENTS.primaryText}`}>
                 CodeAid
               </h1>
             </div>

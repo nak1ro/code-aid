@@ -4,6 +4,7 @@ import { useState, useRef, DragEvent } from 'react';
 import { Button } from './ui/Button';
 import { Card } from './ui/Card';
 import { SUPPORTED_FILE_EXTENSIONS } from '@/lib/validation';
+import { BORDERS } from '@/lib/theme';
 
 interface FileUploadProps {
     onUploadSuccess: () => void;
@@ -123,7 +124,7 @@ export function FileUpload({ onUploadSuccess }: FileUploadProps) {
                     transition-all duration-300 cursor-pointer
                     ${isDragging
                         ? 'border-violet-400 bg-violet-500/20 shadow-lg shadow-violet-500/30'
-                        : 'border-purple-500/30 hover:border-purple-400/50 hover:bg-purple-500/5'
+                        : `${BORDERS.secondary} hover:border-purple-400/50 hover:bg-purple-500/5`
                     } 
                     ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}
                 `}

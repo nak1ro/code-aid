@@ -4,6 +4,7 @@ import { ChunkWithScore } from '@/types';
 import { SourceChunks } from './SourceChunks';
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
+import { GRADIENTS, BORDERS } from '@/lib/theme';
 
 interface MessageBubbleProps {
     messageId: string;
@@ -45,13 +46,13 @@ export function MessageBubble({ messageId, role, content, sources, timestamp }: 
                 className={`
                     max-w-[85%] rounded-2xl px-5 py-4
                     ${isUser
-                        ? `bg-gradient-to-br from-violet-600 to-purple-600 
+                        ? `${GRADIENTS.userMessage} 
                            text-white rounded-tr-none 
                            shadow-lg shadow-violet-500/30
                            ring-1 ring-violet-400/30`
-                        : `bg-gradient-to-br from-purple-900/60 to-indigo-900/60 
+                        : `${GRADIENTS.assistantMessage} 
                            text-purple-50 rounded-tl-none 
-                           border border-purple-500/30
+                           border ${BORDERS.secondary}
                            shadow-lg shadow-purple-900/30
                            ring-1 ring-purple-400/10`
                     }

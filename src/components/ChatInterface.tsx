@@ -6,6 +6,7 @@ import { Input } from './ui/Input';
 import { Card } from './ui/Card';
 import { MessageBubble } from './MessageBubble';
 import { ChunkWithScore } from '@/types';
+import { GRADIENTS, BORDERS, SHADOWS } from '@/lib/theme';
 
 interface Message {
     id: string;
@@ -102,7 +103,7 @@ export function ChatInterface() {
                 {isLoading && (
                     <div className="flex justify-start mb-6">
                         <div
-                            className="bg-gradient-to-br from-purple-900/60 to-indigo-900/60 rounded-2xl rounded-tl-none px-5 py-4 border border-purple-500/30 shadow-lg shadow-purple-500/20">
+                            className={`${GRADIENTS.loading} rounded-2xl rounded-tl-none px-5 py-4 border ${BORDERS.secondary} ${SHADOWS.glow}`}>
                             <div className="flex gap-1">
                                 <div
                                     className="w-2 h-2 bg-purple-400 rounded-full animate-bounce shadow-sm shadow-purple-400"></div>
